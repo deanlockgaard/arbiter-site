@@ -1,0 +1,27 @@
+---
+const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
+---
+
+<section
+  id="controls"
+  aria-labelledby="surfaces-heading"
+  class="py-20 md:py-28 border-t border-zinc-800"
+>
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 id="surfaces-heading" class="text-2xl md:text-3xl mb-8">
+      What Arbiter Controls
+    </h2>
+    <p class={`${bodyParagraph} mb-8`}>
+      Start with the points where agent actions cross consequential boundaries.
+    </p>
+    <ul class="divide-y divide-zinc-800 border border-zinc-800 rounded-sm">
+      <li class="px-6 py-4 text-zinc-300">PR promotion authorization</li>
+      <li class="px-6 py-4 text-zinc-300">Secret access authorization</li>
+      <li class="px-6 py-4 text-zinc-300">Deployment authorization</li>
+      <li class="px-6 py-4 text-zinc-300">
+        Infrastructure change authorization
+      </li>
+      <li class="px-6 py-4 text-zinc-300">Production action authorization</li>
+    </ul>
+  </div>
+</section>

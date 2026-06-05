@@ -1,0 +1,43 @@
+---
+const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
+const surfaceCard = 'border border-zinc-800 bg-zinc-900 rounded-sm p-6';
+---
+
+<section
+  id="how-it-works"
+  aria-labelledby="how-heading"
+  class="py-20 md:py-28 border-t border-zinc-800"
+>
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 id="how-heading" class="text-2xl md:text-3xl mb-8">How It Works</h2>
+    <ol class="list-decimal list-inside space-y-3 mb-8 text-zinc-400">
+      <li>Agent requests action.</li>
+      <li>Arbiter evaluates policy.</li>
+      <li>Arbiter returns ALLOW, DENY, or ESCALATE.</li>
+      <li>Signed authorization receipt produced.</li>
+    </ol>
+    <div class="space-y-4 mb-12">
+      <p class={bodyParagraph}>
+        Policy evaluation is deterministic- there are no LLMs in the enforcement path.
+      </p>
+      <p class={bodyParagraph}>
+        Each decision creates a verifiable record of the policy, evidence, actor,
+        and action evaluated.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class={surfaceCard}>
+        <h3 class="text-lg font-semibold text-zinc-100 mb-2">Arbiter Control</h3>
+        <p class={bodyParagraph}>
+          Authorization engine and signed decision receipts.
+        </p>
+      </div>
+      <div class={surfaceCard}>
+        <h3 class="text-lg font-semibold text-zinc-100 mb-2">Arbiter Runtime</h3>
+        <p class={bodyParagraph}>
+          Deterministic runtime for controlled agent execution.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

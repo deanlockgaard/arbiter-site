@@ -1,0 +1,29 @@
+---
+const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
+---
+
+<section
+  id="problem"
+  aria-labelledby="problem-heading"
+  class="py-20 md:py-28 border-t border-zinc-800"
+>
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 id="problem-heading" class="text-2xl md:text-3xl mb-8">The Problem</h2>
+    <p class={bodyParagraph}>
+      AI agents are being deployed into environments containing:
+    </p>
+    <ul class="list-disc list-inside space-y-2 my-6 text-zinc-400">
+      <li>customer data</li>
+      <li>payment systems</li>
+      <li>regulated data</li>
+      <li>production infrastructure</li>
+    </ul>
+    <p class={bodyParagraph}>
+      Many governance tools explain what happened after the fact.
+    </p>
+    <p class={`${bodyParagraph} mt-6`}>
+      Regulated organizations need deterministic control before consequential
+      actions occur.
+    </p>
+  </div>
+</section>

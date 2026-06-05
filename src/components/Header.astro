@@ -1,0 +1,34 @@
+---
+import {
+  CTA_PILOT_ARIA_LABEL,
+  CTA_PILOT_LABEL,
+  MAILTO_PILOT,
+} from '../constants/site.ts';
+
+const navLink =
+  'text-sm text-zinc-400 hover:text-zinc-100 no-underline';
+const primaryButton =
+  'inline-block border border-zinc-300 text-zinc-100 px-5 py-2.5 text-sm font-medium rounded-sm hover:bg-zinc-900 hover:border-zinc-100 no-underline';
+---
+
+<header class="bg-zinc-950 border-b border-zinc-800">
+  <div
+    class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-4 flex-wrap"
+  >
+    <a
+      href="#top"
+      class="text-zinc-100 font-semibold text-lg no-underline hover:text-zinc-100"
+      >Arbiter</a
+    >
+    <nav aria-label="Primary" class="flex items-center gap-6 flex-wrap">
+      <a href="#how-it-works" class={navLink}>How It Works</a>
+      <a href="#controls" class={navLink}>Controls</a>
+      <a href="#contact" class={navLink}>Contact</a>
+      <a
+        href={MAILTO_PILOT}
+        aria-label={CTA_PILOT_ARIA_LABEL}
+        class={primaryButton}>{CTA_PILOT_LABEL}</a
+      >
+    </nav>
+  </div>
+</header>
