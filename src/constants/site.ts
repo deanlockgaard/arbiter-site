@@ -9,6 +9,11 @@ export const SITE = {
   copyright: '© 2026 Arbiter',
 } as const;
 
+export const LOGO = {
+  width: 236,
+  height: 232,
+} as const;
+
 export const MAILTO_PILOT =
   `mailto:${SITE.email}?subject=Arbiter%20pilot`;
 

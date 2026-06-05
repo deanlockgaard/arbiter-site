@@ -1,7 +1,9 @@
 ---
+import logo from '../assets/arbiter-logo.png';
 import {
   CTA_PILOT_ARIA_LABEL,
   CTA_PILOT_LABEL,
+  LOGO,
   MAILTO_PILOT,
 } from '../constants/site.ts';
 
@@ -17,9 +19,18 @@ const primaryButton =
   >
     <a
       href="#top"
-      class="text-zinc-100 font-semibold text-lg no-underline hover:text-zinc-100"
-      >Arbiter</a
+      class="flex items-center gap-3 no-underline hover:text-zinc-100"
     >
+      <img
+        src={logo.src}
+        width={LOGO.width}
+        height={LOGO.height}
+        alt=""
+        aria-hidden="true"
+        class="h-8 w-auto"
+      />
+      <span class="text-zinc-100 font-semibold text-lg">Arbiter</span>
+    </a>
     <nav aria-label="Primary" class="flex items-center gap-6 flex-wrap">
       <a href="#how-it-works" class={navLink}>How It Works</a>
       <a href="#controls" class={navLink}>Controls</a>
