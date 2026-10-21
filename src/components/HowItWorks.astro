@@ -1,6 +1,5 @@
 ---
 const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
-const surfaceCard = 'border border-zinc-800 bg-zinc-900 rounded-sm p-6';
 ---
 
 <section
@@ -11,33 +10,26 @@ const surfaceCard = 'border border-zinc-800 bg-zinc-900 rounded-sm p-6';
   <div class="max-w-5xl mx-auto px-6">
     <h2 id="how-heading" class="text-2xl md:text-3xl mb-8">How It Works</h2>
     <ol class="list-decimal list-inside space-y-3 mb-8 text-zinc-400">
-      <li>Agent requests action.</li>
-      <li>Arbiter evaluates policy.</li>
-      <li>Arbiter returns ALLOW, DENY, or ESCALATE.</li>
-      <li>Signed authorization receipt produced.</li>
+      <li>A pull request is opened, by a person or an AI agent.</li>
+      <li>Arbiter reads the policy from your protected policy repository.</li>
+      <li>
+        Arbiter checks the evidence GitHub holds: who approved, and which checks
+        passed.
+      </li>
+      <li>
+        The <code>Arbiter / authorize</code> check allows, blocks or escalates the
+        merge, and says what is missing.
+      </li>
     </ol>
-    <div class="space-y-4 mb-12">
+    <div class="space-y-4">
       <p class={bodyParagraph}>
-        Policy evaluation is deterministic- there are no LLMs in the enforcement path.
+        Policy evaluation is deterministic: there are no LLMs in the enforcement
+        path.
       </p>
       <p class={bodyParagraph}>
-        Each decision creates a verifiable record of the policy, evidence, actor,
-        and action evaluated.
+        Each decision is recorded with the policy commit it used, the evidence it
+        read, and its result.
       </p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class={surfaceCard}>
-        <h3 class="text-lg font-semibold text-zinc-100 mb-2">Arbiter Control</h3>
-        <p class={bodyParagraph}>
-          Authorization engine and signed decision receipts.
-        </p>
-      </div>
-      <div class={surfaceCard}>
-        <h3 class="text-lg font-semibold text-zinc-100 mb-2">Arbiter Runtime</h3>
-        <p class={bodyParagraph}>
-          Deterministic runtime for controlled agent execution.
-        </p>
-      </div>
     </div>
   </div>
 </section>

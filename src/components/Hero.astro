@@ -16,12 +16,16 @@ const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
       id="hero-heading"
       class="text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-100 max-w-4xl mb-6"
     >
-      Deterministic control over consequential AI agent actions.
+      A merge gate for AI-written code changes.
     </h1>
+    <p class="text-lg md:text-xl text-zinc-300 max-w-3xl mb-6">
+      For CISOs and engineering leaders who let AI agents change code.
+    </p>
     <p class={`${bodyParagraph} max-w-3xl mb-10`}>
-      Before AI agents modify protected code, access sensitive resources, deploy
-      infrastructure, or perform production actions, Arbiter evaluates policy and
-      returns a signed ALLOW, DENY, or ESCALATE decision.
+      Arbiter checks every pull request that touches sensitive code against your
+      policy, kept as code in your own GitHub. It allows, blocks or escalates the
+      change before it can merge, whether a person or an AI agent wrote it. It runs
+      in your own environment, with your own GitHub App.
     </p>
     <a
       href={MAILTO_PILOT}

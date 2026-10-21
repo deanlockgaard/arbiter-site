@@ -1,27 +1,76 @@
 ---
 const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
+
+// One sentence per use case; each is a row in CLAIMS.md. Docs links are added when docs.arbitercontrol.com is live.
+const useCases = [
+  {
+    title: 'Unreviewed changes to sensitive code and infrastructure',
+    text: 'A pull request that changes a path you protect, such as infrastructure or IAM, needs approval from the team your policy names, and its required checks must pass, before it can merge.',
+    notCovered: null,
+  },
+  {
+    title: 'Risky CI workflow changes',
+    text: "A change under .github/ needs your named team's approval. While a pull request changes a workflow, its own check results count only with a security approval too.",
+    notCovered: 'A pull request’s workflow can still run before the merge gate; the GitHub settings checklist limits what it can reach.',
+  },
+  {
+    title: 'Risky dependency changes',
+    text: "New or changed dependencies and lockfiles need a passing dependency check, run by a protected workflow the pull request cannot change, and a named team's approval.",
+    notCovered: 'It finds known vulnerabilities only.',
+  },
+  {
+    title: 'Secrets in a change',
+    text: 'Every pull request needs a passing secret scan, run by a protected workflow the pull request cannot change.',
+    notCovered: null,
+  },
+  {
+    title: 'Getting around the gate',
+    text: 'An author can never approve their own change, and a merge that goes around Arbiter, such as an admin bypass or a direct push, is recorded and raises an alert.',
+    notCovered: 'Direct pushes are detected only on repositories whose default branch is governed by a GitHub ruleset.',
+  },
+];
 ---
 
 <section
-  id="controls"
-  aria-labelledby="surfaces-heading"
+  id="use-cases"
+  aria-labelledby="use-cases-heading"
   class="py-20 md:py-28 border-t border-zinc-800"
 >
   <div class="max-w-5xl mx-auto px-6">
-    <h2 id="surfaces-heading" class="text-2xl md:text-3xl mb-8">
-      What Arbiter Controls
+    <h2 id="use-cases-heading" class="text-2xl md:text-3xl mb-8">
+      What Arbiter Stops
     </h2>
     <p class={`${bodyParagraph} mb-8`}>
-      Start with the points where agent actions cross consequential boundaries.
+      Five of the top CI/CD security risks, stopped at the merge.
     </p>
     <ul class="divide-y divide-zinc-800 border border-zinc-800 rounded-sm">
-      <li class="px-6 py-4 text-zinc-300">PR promotion authorization</li>
-      <li class="px-6 py-4 text-zinc-300">Secret access authorization</li>
-      <li class="px-6 py-4 text-zinc-300">Deployment authorization</li>
-      <li class="px-6 py-4 text-zinc-300">
-        Infrastructure change authorization
+      {useCases.map((u) => (
+        <li class="px-6 py-5">
+          <h3 class="text-zinc-100 font-semibold mb-2">{u.title}</h3>
+          <p class="text-zinc-400">{u.text}</p>
+          {u.notCovered && (
+            <p class="text-sm text-zinc-500 mt-2">Does not cover: {u.notCovered}</p>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section
+  id="data"
+  aria-labelledby="data-heading"
+  class="py-20 md:py-28 border-t border-zinc-800"
+>
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 id="data-heading" class="text-2xl md:text-3xl mb-8">Your Data</h2>
+    <ul class="list-disc list-inside space-y-3 text-zinc-400">
+      <li>Arbiter runs in your own environment, with your own GitHub App and key.</li>
+      <li>
+        It reads only the files a policy needs, while it evaluates, and never stores
+        their contents.
       </li>
-      <li class="px-6 py-4 text-zinc-300">Production action authorization</li>
+      <li>Decision records stay in your own database.</li>
     </ul>
   </div>
 </section>

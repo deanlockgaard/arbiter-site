@@ -1,8 +1,8 @@
 export const SITE = {
   name: 'Arbiter',
-  title: 'Arbiter. Deterministic control for AI agent actions.',
+  title: 'Arbiter. A merge gate for AI-written code changes.',
   description:
-    'Before AI agents modify protected code, access sensitive resources, deploy infrastructure, or perform production actions, Arbiter evaluates policy and returns a signed ALLOW, DENY, or ESCALATE decision.',
+    'Arbiter checks every pull request that touches sensitive code against your policy, kept as code in your own GitHub, and allows, blocks or escalates it before it can merge. It runs in your own environment.',
   email: 'dean@arbitercontrol.com',
   location: 'San Francisco, CA',
   linkedIn: 'https://www.linkedin.com/company/arbitercontrol',
