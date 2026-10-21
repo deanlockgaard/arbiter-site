@@ -19,7 +19,7 @@ not deployed.
 | C5 | How It Works | Reads the policy from your protected policy repository | Policy-author manual P1 | Policy-repo trust rows | pending |
 | C6 | How It Works | Checks who approved and which checks passed, from GitHub | UC1 | UC1 approval and check rows | pending |
 | C7 | How It Works | The check says what is missing | Developer manual D2 | Any UC1 deny row (comment's three parts) | pending |
-| C8 | How It Works | Deterministic, with no LLMs in the enforcement path | Security packet | Code fact (no model call in `src/`); no live case | pending (operator to confirm the evidence) |
+| C8 | How It Works | Deterministic, with no LLMs in the enforcement path | Security packet | Three checks (`OPERATOR_plan187` `D1`): the network-allowlist live case, the same-answer replay case, and the CI check for LLM libraries and model files | pending |
 | C9 | How It Works | Each decision is recorded with its policy commit, evidence and result | Administrator manual A17 | Restart, backup and diagnostics rows | pending |
 | C10 | Use cases | UC1: protected paths need the named team's approval and passing checks | UC1 | UC1 rows, including dot-path cases (`ARB-332`) | pending |
 | C11 | Use cases | UC2: a change under `.github/` needs approval; workflow changes need a security approval for their check results to count | UC2 | UC2 rows (`ARB-317`) | pending |
