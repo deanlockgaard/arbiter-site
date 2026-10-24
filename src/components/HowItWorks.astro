@@ -1,4 +1,6 @@
 ---
+import { DOCS } from '../constants/site.ts';
+
 const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
 ---
 
@@ -29,6 +31,12 @@ const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
       <p class={bodyParagraph}>
         Each decision is recorded with the policy commit it used, the evidence it
         read, and its result.
+      </p>
+      <p class={bodyParagraph}>
+        Set it up with the
+        <a href={DOCS.admin} class="text-zinc-100 underline underline-offset-4 hover:text-white">administrator manual</a>
+        and the
+        <a href={DOCS.starter} class="text-zinc-100 underline underline-offset-4 hover:text-white">starter policy</a>.
       </p>
     </div>
   </div>

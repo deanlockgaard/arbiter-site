@@ -1,7 +1,9 @@
 ---
+import { DOCS } from '../constants/site.ts';
+
 const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
 
-// One sentence per use case; each is a row in CLAIMS.md. Docs links are added when docs.arbitercontrol.com is live.
+// One sentence per use case; each is a row in CLAIMS.md. Each use case links to its docs page once that page is live.
 const useCases = [
   {
     title: 'Unreviewed changes to sensitive code and infrastructure',
@@ -72,5 +74,8 @@ const useCases = [
       </li>
       <li>Decision records stay in your own database.</li>
     </ul>
+    <p class="text-zinc-400 mt-6">
+      <a href={DOCS.data} class="text-zinc-100 underline underline-offset-4 hover:text-white">What Arbiter receives, keeps and deletes</a>
+    </p>
   </div>
 </section>

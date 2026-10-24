@@ -9,6 +9,14 @@ export const SITE = {
   copyright: '© 2026 Arbiter',
 } as const;
 
+/** The docs site (docs.arbitercontrol.com), built from ArbiterControl/arbiter. */
+export const DOCS = {
+  home: 'https://docs.arbitercontrol.com/',
+  data: 'https://docs.arbitercontrol.com/data-rule/',
+  admin: 'https://docs.arbitercontrol.com/manuals/administrator/',
+  starter: 'https://docs.arbitercontrol.com/starter-policy/',
+} as const;
+
 export const LOGO = {
   width: 236,
   height: 232,

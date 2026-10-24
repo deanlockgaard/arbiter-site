@@ -1,11 +1,6 @@
 ---
 import logo from '../assets/arbiter-logo.png';
-import {
-  CTA_PILOT_ARIA_LABEL,
-  CTA_PILOT_LABEL,
-  LOGO,
-  MAILTO_PILOT,
-} from '../constants/site.ts';
+import { CTA_PILOT_ARIA_LABEL, CTA_PILOT_LABEL, LOGO, MAILTO_PILOT, DOCS } from '../constants/site.ts';
 
 const navLink =
   'text-sm text-zinc-400 hover:text-zinc-100 no-underline';
@@ -34,6 +29,7 @@ const primaryButton =
     <nav aria-label="Primary" class="flex items-center gap-6 flex-wrap">
       <a href="#how-it-works" class={navLink}>How It Works</a>
       <a href="#use-cases" class={navLink}>Use cases</a>
+      <a href={DOCS.home} class={navLink}>Docs</a>
       <a href="#contact" class={navLink}>Contact</a>
       <a
         href={MAILTO_PILOT}
