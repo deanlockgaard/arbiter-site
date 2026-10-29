@@ -27,6 +27,6 @@ not deployed.
 | C13 | Use cases | UC4: every pull request needs a passing secret scan from a protected workflow the pull request cannot change | Policy-author manual P11 | UC4 rows (`ARB-319`, `ARB-264`) | pending |
 | C14 | Use cases | UC5: self-approval never counts; merges around Arbiter are recorded and alerted to your own webhook | Pull request author guide D4; administrator manual A16 | UC5 rows (`ARB-320`, `ARB-102`) | pending |
 | C15 | Your Data | Reads only the files a policy needs, while it evaluates, and never stores their contents | `PARTNER_DATA_RULE.md` summary | Data-rule row (no file contents in the database) | pending |
-| C16 | Your Data | Decision records stay in your own database | `PARTNER_DATA_RULE.md` summary | Backup row | pending |
+| C16 | Your Data | Decision records stay in your own database | `PARTNER_DATA_RULE.md` summary | Backup and restore B1 (`PLAN-206-R3`; ArbiterControl/arbiter#70): restore keeps the backup's decisions, drops a later one, `/health/status` ok | pending |
 
 Each "Does not cover" line on the page repeats its use-case page's limit, and is not a claim.
