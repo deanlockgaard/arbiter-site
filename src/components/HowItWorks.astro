@@ -20,7 +20,7 @@ const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
       </li>
       <li>
         The <code>Arbiter / authorize</code> check allows, blocks or escalates the
-        merge, and says what is missing.
+        merge when GitHub requires it, and says what is missing.
       </li>
     </ol>
     <div class="space-y-4">
@@ -29,8 +29,8 @@ const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
         path.
       </p>
       <p class={bodyParagraph}>
-        Each decision is recorded with the policy commit it used, the evidence it
-        read, and its result.
+        Each decision is recorded with the policy commit it used, the approvals and
+        checks it counted, and its result.
       </p>
       <p class={bodyParagraph}>
         Set it up with the

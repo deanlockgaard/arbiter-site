@@ -1,5 +1,6 @@
 ---
 import {
+  DOCS,
   CTA_PILOT_ARIA_LABEL,
   CTA_PILOT_LABEL,
   MAILTO_PILOT,
@@ -30,6 +31,9 @@ const primaryButton =
         aria-label={CTA_PILOT_ARIA_LABEL}
         class={`${primaryButton} mt-8`}>{CTA_PILOT_LABEL}</a
       >
+      <p class="text-zinc-400 mt-6">
+        <a href={DOCS.home} class="text-zinc-100 underline underline-offset-4 hover:text-white">Read the documentation</a>
+      </p>
     </div>
   </div>
 </section>
