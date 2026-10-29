@@ -13,10 +13,10 @@ not deployed.
 | # | Where | Sentence (short form) | Use-case page | Live case (`ARB-324`) | Status |
 |---|---|---|---|---|---|
 | C1 | Hero, meta, How It Works | Checks every pull request that touches sensitive code against your policy, and allows, blocks or escalates it before it can merge, when GitHub requires its check | Policy-author manual P10 | UC1 allow, deny and escalate rows | pending |
-| C2 | Hero, meta | Policy kept as code in your own GitHub | Policy-author manual P1 | Policy-repo trust rows (unprotected repo denied) | pending |
+| C2 | Hero, meta | Policy kept as code in your own GitHub | Policy-author manual P1 | `uc5` Z6 (ruleset removed → DENY `POLICY_REPO_UNPROTECTED`, restored → ALLOW) and Z6b (a bypass actor → DENY, restored → ALLOW) | pending |
 | C3 | Hero | Whether a person or an AI agent wrote it | Policy-author manual P10 | UC1 rows with `actor_type` human and AI agent | pending |
 | C4 | Hero, meta, Your Data | Runs in your own environment, with your own GitHub App and key | Administrator manual A4, A6 | Image row (self-hosted start on the test org's own App) | pending |
-| C5 | How It Works | Reads the policy from your protected policy repository | Policy-author manual P1 | Policy-repo trust rows | pending |
+| C5 | How It Works | Reads the policy from your protected policy repository | Policy-author manual P1 | `uc5` Z6 (ruleset removed → DENY `POLICY_REPO_UNPROTECTED`, restored → ALLOW) and Z6b (a bypass actor → DENY, restored → ALLOW) | pending |
 | C6 | How It Works | Checks who approved and which checks passed, from GitHub | Policy-author manual P10 | UC1 approval and check rows | pending |
 | C7 | How It Works | The check says what is missing | Developer manual D2 | Any UC1 deny row (comment's three parts) | pending |
 | C8 | How It Works | Deterministic, with no LLMs in the enforcement path | Security packet | Three checks (`OPERATOR_plan187` `D1`): the network-allowlist live case, the same-answer replay case, and the CI check for LLM libraries and model files | pending |
