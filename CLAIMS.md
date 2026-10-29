@@ -10,6 +10,11 @@ Every sentence on arbitercontrol.com that claims a capability has one row here. 
 **A sentence goes live only when its row's live case passes.** Until then its status is `pending`, and the page is
 not deployed.
 
+**Whose run counts** (`OPERATOR_plan234` `D1`): a live case from a suite that reads the operator's `bypass-token`
+(`merge-events`, `v1d`, `uc1`, `uc2`, `uc5`, `trusted`, `uc3`) passes a row only from the operator's own run. An
+assistant's run of those suites is a development run: it is named here, but it never marks a row passed. The `live`
+and `platform` suites are not affected.
+
 | # | Where | Sentence (short form) | Use-case page | Live case (`ARB-324`) | Status |
 |---|---|---|---|---|---|
 | C1 | Hero, meta, How It Works | Checks every pull request that touches sensitive code against your policy, and allows, blocks or escalates it before it can merge, when GitHub requires its check | Policy-author manual P10 | UC1 allow, deny and escalate rows | pending |
@@ -23,7 +28,7 @@ not deployed.
 | C9 | How It Works | Each decision is recorded with the policy commit it used, the approvals and checks it counted, and its result | Administrator manual A19; data-rule page | An export row that shows the policy commit, counted approvals and result for an allow and a deny | pending |
 | C10 | Use cases | UC1: protected paths need the named team's approval and passing checks | Policy-author manual P10 | UC1 rows, including dot-path cases (`ARB-332`) | pending |
 | C11 | Use cases | UC2: your starter policy needs approval for a change under `.github/`; workflow changes need a security approval for their check results to count | Policy-author manual P10 | UC2 rows (`ARB-317`) | pending |
-| C12 | Use cases | UC3: your starter policy needs a passing dependency check, from a protected workflow the pull request cannot change, and approval for dependencies and lockfiles | Starter policy, "Dependency changes" | UC3 live cases D1–D6 (`PLAN-194-R2`; `ARB-318`; harness ArbiterControl/arbiter#75): no trusted scan → DENY, passing scan → ALLOW, failing scan (npm, Go) → DENY, a faked ordinary check with both approvals → DENY `trusted_result_missing`, an unscanned manifest needs approval. Passed on `main` `44eb0375` (run `20261029T183839Z-44eb0375-9237cf75c603`); counts once the operator's E1 run includes the `uc3` suite | pending |
+| C12 | Use cases | UC3: your starter policy needs a passing dependency check, from a protected workflow the pull request cannot change, and approval for dependencies and lockfiles | Starter policy, "Dependency changes" | UC3 live cases D1–D6 (`PLAN-194-R2`; `ARB-318`; harness ArbiterControl/arbiter#75): no trusted scan → DENY, passing scan → ALLOW, failing scan (npm, Go) → DENY, a faked ordinary check with both approvals → DENY `trusted_result_missing`, an unscanned manifest needs approval. Development run on `main` `44eb0375` (`20261029T183839Z-44eb0375-9237cf75c603`, an assistant's run; `OPERATOR_plan234` `D3`); counts once the operator's own run of the `uc3` suite passes | pending |
 | C13 | Use cases | UC4: every pull request needs a passing secret scan from a protected workflow the pull request cannot change | Policy-author manual P11 | UC4 rows (`ARB-319`, `ARB-264`) | pending |
 | C14 | Use cases | UC5: self-approval never counts; merges around Arbiter are recorded and alerted to your own webhook | Pull request author guide D4; administrator manual A16 | UC5 rows (`ARB-320`, `ARB-102`) | pending |
 | C15 | Your Data | Reads only the files a policy needs, while it evaluates, and never stores their contents | `PARTNER_DATA_RULE.md` summary | Data-rule row (no file contents in the database) | pending |
