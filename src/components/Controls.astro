@@ -1,27 +1,95 @@
 ---
+import { DOCS } from '../constants/site.ts';
+
 const bodyParagraph = 'text-base md:text-lg leading-relaxed text-zinc-400';
+
+// One sentence per use case; each is a row in CLAIMS.md. Each use case links to the public manual section that
+// explains it (OPERATOR_plan226 D2).
+const useCases = [
+  {
+    title: 'Unreviewed changes to sensitive code and infrastructure',
+    text: 'A pull request that changes a path you protect, such as infrastructure or IAM, needs approval from the team your policy names, and its required checks must pass, before it can merge.',
+    notCovered: 'Paths your policy does not list are not governed.',
+    links: [{ href: DOCS.useCaseRules, label: 'Policy-author manual: use-case rules' }],
+  },
+  {
+    title: 'Risky CI workflow changes',
+    text: "Your starter policy needs your named team's approval for a change under .github/. While a pull request changes a workflow, its own check results count only with a security approval too.",
+    notCovered: 'A pull request’s workflow can still run before the merge gate; the GitHub settings checklist limits what it can reach.',
+    links: [{ href: DOCS.useCaseRules, label: 'Policy-author manual: use-case rules' }],
+  },
+  {
+    title: 'Risky dependency changes',
+    text: "Your starter policy needs a passing dependency check, run by a protected workflow the pull request cannot change, and a named team's approval for new or changed dependencies and lockfiles.",
+    notCovered: 'It finds known vulnerabilities only.',
+    links: [{ href: DOCS.dependencies, label: 'Starter policy: dependency changes' }],
+  },
+  {
+    title: 'Secrets in a change',
+    text: 'Every pull request needs a passing secret scan, run by a protected workflow the pull request cannot change.',
+    notCovered: 'A scan misses what it cannot detect, such as binary or encoded secrets.',
+    links: [{ href: DOCS.alwaysRequired, label: 'Policy-author manual: checks every pull request must pass' }],
+  },
+  {
+    title: 'Getting around the gate',
+    text: 'An author can never approve their own change, and a merge that goes around Arbiter, such as an admin bypass or a direct push, is recorded and raises an alert to your own webhook.',
+    notCovered: 'Direct pushes are detected only on repositories whose default branch is governed by a GitHub ruleset.',
+    links: [
+      { href: DOCS.ownApproval, label: 'Pull request author guide: your own approval' },
+      { href: DOCS.alerts, label: 'Administrator manual: alerts' },
+    ],
+  },
+];
 ---
 
 <section
-  id="controls"
-  aria-labelledby="surfaces-heading"
+  id="use-cases"
+  aria-labelledby="use-cases-heading"
   class="py-20 md:py-28 border-t border-zinc-800"
 >
   <div class="max-w-5xl mx-auto px-6">
-    <h2 id="surfaces-heading" class="text-2xl md:text-3xl mb-8">
-      What Arbiter Controls
+    <h2 id="use-cases-heading" class="text-2xl md:text-3xl mb-8">
+      What Arbiter Checks
     </h2>
     <p class={`${bodyParagraph} mb-8`}>
-      Start with the points where agent actions cross consequential boundaries.
+      Five ways a pull request can get past review, checked at the merge.
     </p>
     <ul class="divide-y divide-zinc-800 border border-zinc-800 rounded-sm">
-      <li class="px-6 py-4 text-zinc-300">PR promotion authorization</li>
-      <li class="px-6 py-4 text-zinc-300">Secret access authorization</li>
-      <li class="px-6 py-4 text-zinc-300">Deployment authorization</li>
-      <li class="px-6 py-4 text-zinc-300">
-        Infrastructure change authorization
-      </li>
-      <li class="px-6 py-4 text-zinc-300">Production action authorization</li>
+      {useCases.map((u) => (
+        <li class="px-6 py-5">
+          <h3 class="text-zinc-100 font-semibold mb-2">{u.title}</h3>
+          <p class="text-zinc-400">{u.text}</p>
+          {u.notCovered && (
+            <p class="text-sm text-zinc-500 mt-2">Does not cover: {u.notCovered}</p>
+          )}
+          <p class="text-sm mt-2">
+            {u.links.map((l, i) => (
+              <>{i > 0 && ' · '}<a href={l.href} class="text-zinc-100 underline underline-offset-4 hover:text-white">{l.label}</a></>
+            ))}
+          </p>
+        </li>
+      ))}
     </ul>
+  </div>
+</section>
+
+<section
+  id="data"
+  aria-labelledby="data-heading"
+  class="py-20 md:py-28 border-t border-zinc-800"
+>
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 id="data-heading" class="text-2xl md:text-3xl mb-8">Your Data</h2>
+    <ul class="list-disc list-inside space-y-3 text-zinc-400">
+      <li>Arbiter runs in your own environment, with your own GitHub App and key.</li>
+      <li>
+        It reads only the files a policy needs, while it evaluates, and keeps only a
+        few named values from them, such as the agent's session id.
+      </li>
+      <li>Decision records stay in your own database.</li>
+    </ul>
+    <p class="text-zinc-400 mt-6">
+      <a href={DOCS.data} class="text-zinc-100 underline underline-offset-4 hover:text-white">What Arbiter receives, keeps and deletes</a>
+    </p>
   </div>
 </section>
