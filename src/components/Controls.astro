@@ -83,8 +83,13 @@ const useCases = [
     <ul class="list-disc list-inside space-y-3 text-zinc-400">
       <li>Arbiter runs in your own environment, with your own GitHub App and key.</li>
       <li>
-        It reads only the pull request files a policy needs, while it evaluates, and
-        keeps only a few named values from them, such as the agent's session id.
+        Arbiter never reads your application source code. It reads only the files your policy needs and, if you turn
+        on the Terraform check, your Terraform files and the JSON or YAML files they load.
+      </li>
+      <li>
+        From the pull request files a policy needs, it keeps only a few named values, such as the agent's session id.
+        From Terraform files it keeps only file paths, line numbers, resource names and what it found, never what the
+        files say.
       </li>
       <li>Decision records stay in your own database.</li>
     </ul>
