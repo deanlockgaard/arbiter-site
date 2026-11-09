@@ -1,5 +1,5 @@
 ---
-import { SITE } from '../constants/site.ts';
+import { SITE, DOCS } from '../constants/site.ts';
 ---
 
 <footer class="border-t border-zinc-800 py-10">
@@ -10,6 +10,10 @@ import { SITE } from '../constants/site.ts';
       <a
         href={`mailto:${SITE.email}`}
         class="mt-4 text-zinc-400 hover:text-zinc-100 no-underline">{SITE.email}</a
+      >
+      <a
+        href={DOCS.home}
+        class="text-zinc-400 hover:text-zinc-100 no-underline">Documentation</a
       >
       <a
         href={SITE.linkedIn}
