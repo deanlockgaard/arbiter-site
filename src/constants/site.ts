@@ -28,7 +28,7 @@ export const LOGO = {
 } as const;
 
 export const MAILTO_PILOT =
-  `mailto:${SITE.email}?subject=Arbiter%20pilot`;
+  `mailto:${SITE.email}?subject=Arbiter%20early%20design-partner%20program`;
 
 /** Unified CTA label — used on every pilot button/link site-wide */
 export const CTA_PILOT_LABEL = 'Request a pilot';
